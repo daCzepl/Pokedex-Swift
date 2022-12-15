@@ -14,6 +14,7 @@
 		785A93CA292FCB1800DEEA9F /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785A93C9292FCB1800DEEA9F /* PokedexTests.swift */; };
 		785A93D4292FCB1800DEEA9F /* PokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785A93D3292FCB1800DEEA9F /* PokedexUITests.swift */; };
 		785A93D6292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785A93D5292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift */; };
+		82D52628294B6B15003F3A90 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D52627294B6B15003F3A90 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		785A93CF292FCB1800DEEA9F /* PokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		785A93D3292FCB1800DEEA9F /* PokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITests.swift; sourceTree = "<group>"; };
 		785A93D5292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		82D52627294B6B15003F3A90 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				785A93BA292FCB1600DEEA9F /* ContentView.swift */,
 				785A93BC292FCB1800DEEA9F /* Assets.xcassets */,
 				785A93BE292FCB1800DEEA9F /* Preview Content */,
+				82D52627294B6B15003F3A90 /* Model.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D52628294B6B15003F3A90 /* Model.swift in Sources */,
 				785A93BB292FCB1600DEEA9F /* ContentView.swift in Sources */,
 				785A93B9292FCB1600DEEA9F /* PokedexApp.swift in Sources */,
 			);
