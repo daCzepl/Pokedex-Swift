@@ -1,3 +1,4 @@
+import Foundation
 struct Pokedex {
     
     private (set) var pokemons = [Pokemon]()
