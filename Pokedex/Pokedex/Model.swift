@@ -13,6 +13,8 @@ struct Pokedex {
         let names: Name
         let stats: Stats
         let primaryType: PokemonType
+        let secondaryType: PokemonType
+        let assets: Assets
     }
     
     
@@ -27,6 +29,13 @@ struct Pokedex {
         let type: TypeElement	
         let names: Name
     }
+    
+    struct Assets: Codable {
+        let image: String
+        let shinyImage: String
+    }
+    
+    
     enum TypeElement: String, Codable{
         case bug = "POKEMON_TYPE_BUG"
         case dark = "POKEMON_TYPE_DARK"
