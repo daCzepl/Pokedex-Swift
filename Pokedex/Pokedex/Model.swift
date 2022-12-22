@@ -31,8 +31,7 @@ struct Pokedex {
     }
     
     struct Assets: Codable {
-        let image: String
-        let shinyImage: String
+        let image, shinyImage: String
     }
     
     
