@@ -1,10 +1,11 @@
 struct Pokedex {
     
     private (set) var pokemons = [Pokemon]()
+    static let BASE = "https://pokemon-go-api.github.io/pokemon-go-api/api/pokedex.json"
+
 
     struct Pokemon {
         
-        static let BASE = "https://pokemon-go-api.github.io/pokemon-go-api/api/pokedex.json"
         
         let id: String
         let formId: String

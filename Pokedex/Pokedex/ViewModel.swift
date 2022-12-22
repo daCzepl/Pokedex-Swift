@@ -17,4 +17,11 @@ class ViewModel:ObservableObject{
     var pokemons :[Pokedex.Pokemon]{
         model.pokemons;
     }
+    static func load() -> Data? {
+        var data: Data?
+        if let url = URL(string: Pokedex.BASE) {
+            data = try? Data(contentsOf:url)
+        }
+        return data
+    }
 }
