@@ -1,10 +1,18 @@
+import Foundation
+
 struct Pokedex {
     
     private (set) var pokemons = [Pokemon]()
     static let BASE = "https://pokemon-go-api.github.io/pokemon-go-api/api/pokedex.json"
+    
+    mutating func fromJson(data: Data) {
+        if let jsonPokemon = try? JSONDecoder().decode([Pokemon].self, from: data) {
+            pokemons = jsonPokemon
+        }
+        print(pokemons[1].dexNr)
+    }
 
-
-    struct Pokemon {
+    struct Pokemon: Identifiable,Codable{
         
         
         let id: String

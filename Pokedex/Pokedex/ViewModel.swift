@@ -9,9 +9,19 @@ import Foundation
 
 class ViewModel:ObservableObject{
     @Published private var model = Pokedex()
+    typealias Pokemon = Pokedex.Pokemon
+
+    
     
     init(){
-        
+        let downloadQueue = DispatchQueue(label: "download")
+        downloadQueue.async {
+            if let data = ViewModel.load() {
+                DispatchQueue.main.async {
+                    self.model.fromJson(data: data)
+                }
+            }
+        }
     }
     
     var pokemons :[Pokedex.Pokemon]{
