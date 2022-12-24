@@ -34,4 +34,7 @@ class ViewModel:ObservableObject{
         }
         return data
     }
+    func bangoGiveColorPlease(){
+        
+    }
 }
