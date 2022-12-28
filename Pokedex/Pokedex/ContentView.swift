@@ -12,6 +12,7 @@ struct ContentView: View {
     
     private let gridItems = [GridItem(.flexible()),GridItem(.flexible())]
     var body: some View {
+        Spacer()
         List{
             ForEach(viewModel.pokemons){
                 pokemon in PokemonView(pokemon: pokemon)
@@ -25,7 +26,7 @@ struct PokemonView : View{
         ZStack{
             HStack{
                 VStack (alignment: .leading){
-                    Text("\(pokemon.names.English): ")
+                    Text("\(pokemon.names.English) ")
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding(.top)
@@ -77,3 +78,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView(viewModel: viewModel)
     }
 }
+
