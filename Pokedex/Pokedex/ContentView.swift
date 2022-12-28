@@ -13,9 +13,14 @@ struct ContentView: View {
     private let gridItems = [GridItem(.flexible()),GridItem(.flexible())]
     var body: some View {
         Spacer()
-        List{
-            ForEach(viewModel.pokemons){
-                pokemon in PokemonView(pokemon: pokemon)
+        VStack {
+            Text("Pokedex")
+                .font(.title)
+                
+            List{
+                ForEach(viewModel.pokemons){
+                    pokemon in PokemonView(pokemon: pokemon)
+                }
             }
         }
     }
@@ -26,7 +31,7 @@ struct PokemonView : View{
         ZStack{
             HStack{
                 VStack (alignment: .leading){
-                    Text("\(pokemon.names.English) ")
+                    Text("\(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))  ")
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding(.top)
@@ -67,7 +72,7 @@ struct PokemonView : View{
                 }
             }.padding()
         }
-        .background(Color.green)
+        .background(ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))
         .cornerRadius(12)
     }
         

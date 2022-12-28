@@ -99,11 +99,11 @@
 			isa = PBXGroup;
 			children = (
 				788ABFAB295448B800A94686 /* ViewModel.swift */,
+				82D52627294B6B15003F3A90 /* Model.swift */,
 				785A93B8292FCB1600DEEA9F /* PokedexApp.swift */,
 				785A93BA292FCB1600DEEA9F /* ContentView.swift */,
 				785A93BC292FCB1800DEEA9F /* Assets.xcassets */,
 				785A93BE292FCB1800DEEA9F /* Preview Content */,
-				82D52627294B6B15003F3A90 /* Model.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
