@@ -38,8 +38,8 @@ struct PokemonView : View{
                         .font(.headline)
                         .foregroundColor(.black)
                     
-                    if let secondType = pokemon.secondaryType?.names.English{
-                        Text("\(pokemon.primaryType.names.English)  \(secondType)")
+                    if let secondType = pokemon.secondaryType{
+                        Text("\(ViewModel.getTypeNameByPokemon(type: pokemon.primaryType))  \(ViewModel.getTypeNameByPokemon(type: secondType))")
                             .font(.subheadline).bold()
                             .foregroundColor(.black)
                             .padding(.horizontal,16)
@@ -49,7 +49,7 @@ struct PokemonView : View{
                                     .fill(Color.black.opacity(0.25))
                             )
                     }else{
-                        Text("\(pokemon.primaryType.names.English)")
+                        Text("\(ViewModel.getTypeNameByPokemon(type: pokemon.primaryType))")
                             .font(.subheadline).bold()
                             .foregroundColor(.black)
                             .padding(.horizontal,16)
