@@ -16,6 +16,7 @@
 		785A93D6292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785A93D5292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift */; };
 		788ABFAC295448B800A94686 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788ABFAB295448B800A94686 /* ViewModel.swift */; };
 		82D52628294B6B15003F3A90 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D52627294B6B15003F3A90 /* Model.swift */; };
+		FFA90E6529704BFD00AAAA5A /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA90E6429704BFD00AAAA5A /* NavigationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		785A93D5292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		788ABFAB295448B800A94686 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		82D52627294B6B15003F3A90 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FFA90E6429704BFD00AAAA5A /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				785A93BA292FCB1600DEEA9F /* ContentView.swift */,
 				785A93BC292FCB1800DEEA9F /* Assets.xcassets */,
 				785A93BE292FCB1800DEEA9F /* Preview Content */,
+				FFA90E6429704BFD00AAAA5A /* NavigationModel.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				82D52628294B6B15003F3A90 /* Model.swift in Sources */,
 				785A93BB292FCB1600DEEA9F /* ContentView.swift in Sources */,
+				FFA90E6529704BFD00AAAA5A /* NavigationModel.swift in Sources */,
 				788ABFAC295448B800A94686 /* ViewModel.swift in Sources */,
 				785A93B9292FCB1600DEEA9F /* PokedexApp.swift in Sources */,
 			);

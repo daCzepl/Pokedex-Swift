@@ -22,6 +22,7 @@ struct ContentView: View {
                     pokemon in PokemonView(pokemon: pokemon)
                 }
             }
+            
         }
     }
 }
@@ -79,6 +80,14 @@ struct PokemonView : View{
     }
         
 }
+
+struct PokemonDetailView: View{
+    let pokemon: Pokedex.Pokemon
+    var body: some View {
+        Text("\(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))")
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static let viewModel = ViewModel()
     static var previews: some View {
