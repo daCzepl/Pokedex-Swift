@@ -31,10 +31,12 @@ struct PokemonView : View{
         ZStack{
             HStack{
                 VStack (alignment: .leading){
+                    Text("#\(pokemon.dexNr)")
+                        .font(.headline)
+                        .foregroundColor(.black)
                     Text("\(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))  ")
                         .font(.headline)
                         .foregroundColor(.black)
-                        .padding(.top)
                     
                     if let secondType = pokemon.secondaryType?.names.English{
                         Text("\(pokemon.primaryType.names.English)  \(secondType)")
