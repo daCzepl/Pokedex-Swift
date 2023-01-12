@@ -102,4 +102,24 @@ class ViewModel:ObservableObject{
             return pokemon.names.English
         }
     }
+    
+    static func getTypeNameByPokemon(type: Pokedex.PokemonType) -> String {
+        let languageCode = Locale.preferredLanguages[0]
+        switch languageCode.prefix(2) {
+        case "de":
+            return type.names.German
+        case "fr":
+            return type.names.French
+        case "it":
+            return type.names.Italian
+        case "ja":
+            return type.names.Japanese
+        case "ko":
+            return type.names.Korean
+        case "es":
+            return type.names.Spanish
+        default:
+            return type.names.English
+        }
+    }
 }
