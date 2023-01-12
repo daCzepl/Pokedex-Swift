@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E9FE0922970526100EE01A1 /* DetailPokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9FE0912970526100EE01A1 /* DetailPokemonView.swift */; };
 		785A93B9292FCB1600DEEA9F /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785A93B8292FCB1600DEEA9F /* PokedexApp.swift */; };
 		785A93BB292FCB1600DEEA9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785A93BA292FCB1600DEEA9F /* ContentView.swift */; };
 		785A93BD292FCB1800DEEA9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 785A93BC292FCB1800DEEA9F /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E9FE0912970526100EE01A1 /* DetailPokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPokemonView.swift; sourceTree = "<group>"; };
 		785A93B5292FCB1600DEEA9F /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		785A93B8292FCB1600DEEA9F /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
 		785A93BA292FCB1600DEEA9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				785A93BC292FCB1800DEEA9F /* Assets.xcassets */,
 				785A93BE292FCB1800DEEA9F /* Preview Content */,
 				FFA90E6429704BFD00AAAA5A /* NavigationModel.swift */,
-				1E9FE0912970526100EE01A1 /* DetailPokemonView.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -272,7 +269,6 @@
 				82D52628294B6B15003F3A90 /* Model.swift in Sources */,
 				785A93BB292FCB1600DEEA9F /* ContentView.swift in Sources */,
 				FFA90E6529704BFD00AAAA5A /* NavigationModel.swift in Sources */,
-				1E9FE0922970526100EE01A1 /* DetailPokemonView.swift in Sources */,
 				788ABFAC295448B800A94686 /* ViewModel.swift in Sources */,
 				785A93B9292FCB1600DEEA9F /* PokedexApp.swift in Sources */,
 			);
