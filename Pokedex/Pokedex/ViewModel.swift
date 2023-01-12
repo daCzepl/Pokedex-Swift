@@ -14,7 +14,7 @@ class ViewModel:ObservableObject{
 
     
     
-    init(){
+    func downloadAllPokemon(){
         let downloadQueue = DispatchQueue(label: "download")
         downloadQueue.async {
             if let data = ViewModel.load() {

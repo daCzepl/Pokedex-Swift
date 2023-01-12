@@ -9,21 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
-    
-    private let gridItems = [GridItem(.flexible()),GridItem(.flexible())]
+    @ObservedObject var navigationModel: NavigationModel
     var body: some View {
-        Spacer()
-        VStack {
-            Text("Pokedex")
-                .font(.title)
-                
-            List{
-                ForEach(viewModel.pokemons){
-                    pokemon in PokemonView(pokemon: pokemon)
+            NavigationStack {
+                List(viewModel.pokemons) {
+                    pokemon in NavigationLink(value: pokemon,label: {
+                        PokemonView(pokemon: pokemon)
+                    })
                 }
             }
-            
-        }
+            .padding(.bottom)
+            .navigationDestination(for: ViewModel.Pokemon.self, destination: {pokemon in PokemonDetailView(pokemon: pokemon)})
+            .navigationTitle("Pokemon")
+            .task {
+                viewModel.downloadAllPokemon()
+            }
+        
     }
 }
 struct PokemonView : View{
@@ -82,7 +83,7 @@ struct PokemonView : View{
 }
 
 struct PokemonDetailView: View{
-    let pokemon: Pokedex.Pokemon
+    let pokemon: ViewModel.Pokemon
     var body: some View {
         Text("\(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))")
     }
@@ -90,8 +91,9 @@ struct PokemonDetailView: View{
 
 struct ContentView_Previews: PreviewProvider {
     static let viewModel = ViewModel()
+    static let navigationModel = NavigationModel()
     static var previews: some View {
-        ContentView(viewModel: viewModel)
+        ContentView(viewModel: viewModel,navigationModel: navigationModel)
     }
 }
 

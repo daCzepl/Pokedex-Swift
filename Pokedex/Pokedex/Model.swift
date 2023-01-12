@@ -13,7 +13,7 @@ struct Pokedex {
         
     }
 
-    struct Pokemon: Identifiable,Codable{
+    struct Pokemon: Identifiable,Codable,Hashable{
         let id: String
         let formId: String
         let dexNr: Int
@@ -26,24 +26,24 @@ struct Pokedex {
     }
     
     
-    struct Name: Codable {
+    struct Name: Codable ,Hashable{
         let English, German, French, Italian, Japanese, Korean, Spanish: String
     }
     
-    struct Stats: Codable{
+    struct Stats: Codable,Hashable{
         let stamina, attack, defense: Int
     }
-    struct PokemonType: Codable {
+    struct PokemonType: Codable,Hashable {
         let type: TypeElement	
         let names: Name
     }
     
-    struct Assets: Codable {
+    struct Assets: Codable ,Hashable{
         let image, shinyImage: String
     }
     
     
-    enum TypeElement: String, Codable{
+    enum TypeElement: String, Codable,Hashable{
         case bug = "POKEMON_TYPE_BUG"
         case dark = "POKEMON_TYPE_DARK"
         case dragon = "POKEMON_TYPE_DRAGON"
