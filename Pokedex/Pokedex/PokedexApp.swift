@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct PokedexApp: App {
+    let viewModel = ViewModel()
+    let navigationModel = NavigationModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel,navigationModel: navigationModel)
         }
     }
 }
