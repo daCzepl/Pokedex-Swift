@@ -60,11 +60,7 @@ struct PokemonView : View{
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(Color.black.opacity(0.25))
                             )
-                        
                     }
-                    
-                    
-                    
                 }
                 Spacer()
                 if let imageURL = pokemon.assets?.image{
