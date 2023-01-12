@@ -17,14 +17,15 @@ struct ContentView: View {
                         PokemonView(pokemon: pokemon)
                     })
                 }
+                .padding(.bottom)
+                .navigationDestination(for: ViewModel.Pokemon.self, destination: {pokemon in PokemonDetailView(pokemon: pokemon)})
+                .navigationTitle("Pokemon")
+                .task {
+                    viewModel.downloadAllPokemon()
+                }
+            
             }
-            .padding(.bottom)
-            .navigationDestination(for: ViewModel.Pokemon.self, destination: {pokemon in PokemonDetailView(pokemon: pokemon)})
-            .navigationTitle("Pokemon")
-            .task {
-                viewModel.downloadAllPokemon()
-            }
-        
+            
     }
 }
 struct PokemonView : View{
