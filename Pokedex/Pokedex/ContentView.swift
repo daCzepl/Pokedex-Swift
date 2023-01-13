@@ -82,7 +82,18 @@ struct PokemonView : View{
 struct PokemonDetailView: View{
     let pokemon: ViewModel.Pokemon
     var body: some View {
-        Text("\(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))")
+        VStack{
+            if let imageUrl = pokemon.assets?.image{
+                AsyncImage(url: URL(string: imageUrl))
+                    .padding(.bottom)
+            }
+            VStack{
+                Text("**Attack**: \(pokemon.stats?.attack ?? 0)")
+                Text("**Defense**: \(pokemon.stats?.defense ?? 0)")
+                Text("**Stamina**: \(pokemon.stats?.stamina ?? 0)")
+            }
+        }
+        
     }
 }
 
