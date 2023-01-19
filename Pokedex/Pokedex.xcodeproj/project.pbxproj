@@ -16,6 +16,7 @@
 		785A93D6292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785A93D5292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift */; };
 		788ABFAC295448B800A94686 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788ABFAB295448B800A94686 /* ViewModel.swift */; };
 		82D52628294B6B15003F3A90 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D52627294B6B15003F3A90 /* Model.swift */; };
+		B782828729793421000C5C85 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B782828629793421000C5C85 /* ViewModelTests.swift */; };
 		FFA90E6529704BFD00AAAA5A /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA90E6429704BFD00AAAA5A /* NavigationModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		785A93D5292FCB1800DEEA9F /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		788ABFAB295448B800A94686 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		82D52627294B6B15003F3A90 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B782828629793421000C5C85 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		FFA90E6429704BFD00AAAA5A /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				785A93C9292FCB1800DEEA9F /* PokedexTests.swift */,
+				B782828629793421000C5C85 /* ViewModelTests.swift */,
 			);
 			path = PokedexTests;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B782828729793421000C5C85 /* ViewModelTests.swift in Sources */,
 				785A93CA292FCB1800DEEA9F /* PokedexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
