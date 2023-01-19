@@ -79,29 +79,69 @@ struct PokemonView : View{
         
 }
 
-struct PokemonDetailView: View{
+struct PokemonDetailView: View {
     let pokemon: ViewModel.Pokemon
     var body: some View {
-        VStack{
-            if let imageUrl = pokemon.assets?.image{
-                AsyncImage(url: URL(string: imageUrl))
-                    .padding(.bottom)
-            }
-            VStack{
-                Text("**Attack**: \(pokemon.stats?.attack ?? 0)")
-                Text("**Defense**: \(pokemon.stats?.defense ?? 0)")
-                Text("**Stamina**: \(pokemon.stats?.stamina ?? 0)")
+        ZStack {
+            
+            VStack(alignment: .center) {
+                if let imageUrl = pokemon.assets?.image {
+                    AsyncImage(url: URL(string: imageUrl))
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue), lineWidth: 4))
+                        .shadow(radius: 10)
+                        .padding(.top, 50)
+                }
+                Text(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(.top, 20)
+                HStack {
+                    VStack {
+                        Text("Attack")
+                            .font(.headline)
+                    Text("\(pokemon.stats?.attack ?? 0)")
+                        StatProgressView(value: Double((pokemon.stats?.attack ?? 0)), maxValue: 345.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))
+                        
+                    }
+                    Spacer()
+                    VStack {
+                        Text("Defense")
+                            .font(.headline)
+                        StatProgressView(value: Double((pokemon.stats?.defense ?? 0)), maxValue: 300.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))                    }
+                    Spacer()
+                    VStack {
+                        Text("Stamina")
+                            .font(.headline)
+                        StatProgressView(value: Double((pokemon.stats?.stamina ?? 0)), maxValue: 300.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))                    }
+                }
+                .padding(.top, 20)
             }
         }
-        
     }
 }
 
+ 
 struct ContentView_Previews: PreviewProvider {
     static let viewModel = ViewModel()
     static let navigationModel = NavigationModel()
     static var previews: some View {
         ContentView(viewModel: viewModel,navigationModel: navigationModel)
     }
+}
+
+struct StatProgressView: View {
+    let value: Double
+    let maxValue: Double
+    let color: Color
+    var body: some View {
+        ProgressView(value: value / maxValue)
+            .frame(width: 100)
+            .background(Color.gray)
+            .accentColor(color)
+            .padding(.all, 10)
+}
 }
 
