@@ -11,8 +11,6 @@ import SwiftUI
 class ViewModel:ObservableObject{
     @Published private var model = Pokedex()
     typealias Pokemon = Pokedex.Pokemon
-
-    
     
     func downloadAllPokemon(){
         let downloadQueue = DispatchQueue(label: "download")
