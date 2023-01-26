@@ -110,13 +110,13 @@ struct PokemonDetailView: View {
                     VStack {
                         Text("Defense")
                             .font(.headline)
-                        Text("\(pokemon.stats?.attack ?? 0)")
+                        Text("\(pokemon.stats?.defense ?? 0)")
                             StatProgressView(value: Double((pokemon.stats?.defense ?? 0)), maxValue: 345.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))}
                     Spacer()
                     VStack {
                         Text("Stamina")
                             .font(.headline)
-                        Text("\(pokemon.stats?.attack ?? 0)")
+                        Text("\(pokemon.stats?.stamina ?? 0)")
                             StatProgressView(value: Double((pokemon.stats?.stamina ?? 0)), maxValue: 345.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))                   }
                 }
                 .padding(.top, 20)
