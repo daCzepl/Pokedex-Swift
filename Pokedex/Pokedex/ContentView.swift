@@ -81,11 +81,31 @@ struct PokemonView : View{
 
 struct PokemonDetailView: View {
     let pokemon: ViewModel.Pokemon
+    @State private var shiny = false;
     var body: some View {
         ZStack {
             
             VStack(alignment: .center) {
-                if let imageUrl = pokemon.assets?.image {
+                if let shinyUrl = pokemon.assets?.shinyImage{
+                    Toggle("Shiny",isOn: $shiny)
+                    if(shiny == true){
+                        AsyncImage(url: URL(string: shinyUrl))
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue), lineWidth: 4))
+                            .shadow(radius: 10)
+                            .padding(.top, 50)
+                    }else if let imageUrl = pokemon.assets?.image {
+                        AsyncImage(url: URL(string: imageUrl))
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue), lineWidth: 4))
+                            .shadow(radius: 10)
+                            .padding(.top, 50)
+                    }
+                }else if let imageUrl = pokemon.assets?.image {
                     AsyncImage(url: URL(string: imageUrl))
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200, height: 200)
