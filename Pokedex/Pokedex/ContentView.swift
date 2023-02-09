@@ -10,9 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     @ObservedObject var navigationModel: NavigationModel
+    
+    @State private var searchText = ""
+    
     var body: some View {
             NavigationStack {
-                List(viewModel.pokemons) {
+                List(filteredPokemon) {
                     pokemon in NavigationLink(value: pokemon,label: {
                         PokemonView(pokemon: pokemon)
                     })
@@ -23,9 +26,16 @@ struct ContentView: View {
                 .task {
                     viewModel.downloadAllPokemon()
                 }
-            
+                .searchable(text: $searchText)
             }
             
+    }
+    var filteredPokemon : [Pokedex.Pokemon] {
+        if searchText.isEmpty {
+            return viewModel.pokemons
+        }else {
+            return viewModel.pokemons.filter { ViewModel.getDisplayNameByPreferredLanguage(pokemon: $0).contains(searchText)}
+        }
     }
 }
 struct PokemonView : View{
@@ -164,6 +174,5 @@ struct StatProgressView: View {
             .background(Color.gray)
             .accentColor(color)
             .padding(.all, 10)
+    }
 }
-}
-
