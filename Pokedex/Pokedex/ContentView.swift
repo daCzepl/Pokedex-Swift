@@ -84,8 +84,8 @@ struct PokemonDetailView: View {
     @State private var shiny = false;
     var body: some View {
         ZStack {
-            
             VStack(alignment: .center) {
+                BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
                 if let shinyUrl = pokemon.assets?.shinyImage{
                     Toggle("Shiny",isOn: $shiny)
                     if(shiny == true){
@@ -127,6 +127,7 @@ struct PokemonDetailView: View {
                         
                     }
                     Spacer()
+                    
                     VStack {
                         Text("Defense")
                             .font(.headline)
@@ -135,10 +136,12 @@ struct PokemonDetailView: View {
                     Spacer()
                     VStack {
                         Text("Stamina")
+                        
                             .font(.headline)
                         Text("\(pokemon.stats?.stamina ?? 0)")
                             StatProgressView(value: Double((pokemon.stats?.stamina ?? 0)), maxValue: 345.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))                   }
                 }
+
                 .padding(.top, 20)
             }
         }
