@@ -84,8 +84,9 @@ struct PokemonDetailView: View {
     @State private var shiny = false;
     var body: some View {
         ZStack {
+ 
             VStack(alignment: .center) {
-                BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+
                 if let shinyUrl = pokemon.assets?.shinyImage{
                     Toggle("Shiny",isOn: $shiny)
                     if(shiny == true){
@@ -114,6 +115,7 @@ struct PokemonDetailView: View {
                         .shadow(radius: 10)
                         .padding(.top, 50)
                 }
+                BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
                 Text(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))
                     .font(.largeTitle)
                     .bold()
