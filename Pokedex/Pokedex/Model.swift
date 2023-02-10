@@ -1,41 +1,48 @@
+import Foundation
 struct Pokedex {
     
     private (set) var pokemons = [Pokemon]()
+    static let BASE = "https://pokemon-go-api.github.io/pokemon-go-api/api/pokedex.json"
+    
+    mutating func fromJson(data: Data) {
+        
+        if let jsonPokemon = try? JSONDecoder().decode([Pokemon].self, from: data) {
+            pokemons = jsonPokemon
+        }
+        
+    }
 
-    struct Pokemon {
-        
-        static let BASE = "https://pokemon-go-api.github.io/pokemon-go-api/api/pokedex.json"
-        
+    struct Pokemon: Identifiable,Codable,Hashable{
         let id: String
         let formId: String
         let dexNr: Int
         let generation: Int
         let names: Name
-        let stats: Stats
+        let stats: Stats?
         let primaryType: PokemonType
-        let secondaryType: PokemonType
-        let assets: Assets
+        let secondaryType: PokemonType?
+        let assets: Assets?
     }
     
     
-    struct Name: Codable {
+    struct Name: Codable ,Hashable{
         let English, German, French, Italian, Japanese, Korean, Spanish: String
     }
     
-    struct Stats: Codable{
+    struct Stats: Codable,Hashable{
         let stamina, attack, defense: Int
     }
-    struct PokemonType: Codable {
+    struct PokemonType: Codable,Hashable {
         let type: TypeElement	
         let names: Name
     }
     
-    struct Assets: Codable {
+    struct Assets: Codable ,Hashable{
         let image, shinyImage: String
     }
     
     
-    enum TypeElement: String, Codable{
+    enum TypeElement: String, Codable,Hashable{
         case bug = "POKEMON_TYPE_BUG"
         case dark = "POKEMON_TYPE_DARK"
         case dragon = "POKEMON_TYPE_DRAGON"
