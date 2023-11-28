@@ -155,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				785A93C9292FCB1800DEEA9F /* PokedexTests.swift */,
+				B782828629793421000C5C85 /* ViewModelTests.swift */,
 			);
 			path = PokedexTests;
 			sourceTree = "<group>";
@@ -432,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B782828729793421000C5C85 /* ViewModelTests.swift in Sources */,
 				785A93CA292FCB1800DEEA9F /* PokedexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
