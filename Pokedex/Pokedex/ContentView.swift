@@ -10,9 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     @ObservedObject var navigationModel: NavigationModel
+    
+    @State private var searchText = ""
+    
     var body: some View {
             NavigationStack {
-                List(viewModel.pokemons) {
+                List(filteredPokemon) {
                     pokemon in NavigationLink(value: pokemon,label: {
                         PokemonView(pokemon: pokemon)
                     })
@@ -23,9 +26,16 @@ struct ContentView: View {
                 .task {
                     viewModel.downloadAllPokemon()
                 }
-            
+                .searchable(text: $searchText)
             }
             
+    }
+    var filteredPokemon : [Pokedex.Pokemon] {
+        if searchText.isEmpty {
+            return viewModel.pokemons
+        }else {
+            return viewModel.pokemons.filter { ViewModel.getDisplayNameByPreferredLanguage(pokemon: $0).contains(searchText)}
+        }
     }
 }
 struct PokemonView : View{
@@ -79,13 +89,78 @@ struct PokemonView : View{
         
 }
 
-struct PokemonDetailView: View{
+struct PokemonDetailView: View {
     let pokemon: ViewModel.Pokemon
+    @State private var shiny = false;
     var body: some View {
-        Text("\(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))")
+        ZStack {
+ 
+            VStack(alignment: .center) {
+
+                if let shinyUrl = pokemon.assets?.shinyImage{
+                    Toggle("Shiny",isOn: $shiny)
+                    if(shiny == true){
+                        AsyncImage(url: URL(string: shinyUrl))
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue), lineWidth: 4))
+                            .shadow(radius: 10)
+                            .padding(.top, 50)
+                    }else if let imageUrl = pokemon.assets?.image {
+                        AsyncImage(url: URL(string: imageUrl))
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue), lineWidth: 4))
+                            .shadow(radius: 10)
+                            .padding(.top, 50)
+                    }
+                }else if let imageUrl = pokemon.assets?.image {
+                    AsyncImage(url: URL(string: imageUrl))
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue), lineWidth: 4))
+                        .shadow(radius: 10)
+                        .padding(.top, 50)
+                }
+                BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+                Text(ViewModel.getDisplayNameByPreferredLanguage(pokemon: pokemon))
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(.top, 20)
+                HStack {
+                    VStack {
+                        Text("Attack")
+                            .font(.headline)
+                    Text("\(pokemon.stats?.attack ?? 0)")
+                        StatProgressView(value: Double((pokemon.stats?.attack ?? 0)), maxValue: 345.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))
+                        
+                    }
+                    Spacer()
+                    
+                    VStack {
+                        Text("Defense")
+                            .font(.headline)
+                        Text("\(pokemon.stats?.defense ?? 0)")
+                            StatProgressView(value: Double((pokemon.stats?.defense ?? 0)), maxValue: 345.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))}
+                    Spacer()
+                    VStack {
+                        Text("Stamina")
+                        
+                            .font(.headline)
+                        Text("\(pokemon.stats?.stamina ?? 0)")
+                            StatProgressView(value: Double((pokemon.stats?.stamina ?? 0)), maxValue: 345.0, color: ViewModel.getColorByPokemonType(pokeType: pokemon.primaryType.type.rawValue))                   }
+                }
+
+                .padding(.top, 20)
+            }
+        }
     }
 }
 
+ 
 struct ContentView_Previews: PreviewProvider {
     static let viewModel = ViewModel()
     static let navigationModel = NavigationModel()
@@ -94,3 +169,15 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+struct StatProgressView: View {
+    let value: Double
+    let maxValue: Double
+    let color: Color
+    var body: some View {
+        ProgressView(value: value / maxValue)
+            .frame(width: 100)
+            .background(Color.gray)
+            .accentColor(color)
+            .padding(.all, 10)
+    }
+}
